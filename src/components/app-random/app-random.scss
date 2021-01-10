@@ -1,0 +1,29 @@
+app-random {
+    ion-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid lightgrey;
+        margin-bottom: 12px;
+
+        ion-icon {
+            margin-left: 12px;
+            color: gray;
+        }
+    }
+
+    ion-card-content {
+        display: grid;
+        grid-template-columns: auto 20vw;
+        align-items: center;
+
+        p {
+            grid-column: span 2;
+        }
+
+        ion-button {
+            grid-column: 2;
+            justify-self: end;
+        }
+    }
+}

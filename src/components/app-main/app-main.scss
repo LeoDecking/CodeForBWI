@@ -1,0 +1,142 @@
+app-main {
+    ion-card {
+        margin: 20px auto;
+        max-width: 1080px;
+
+        &:first-of-type {
+            margin: 0 auto;
+        }
+
+        ion-card-header {
+            border-bottom: 1px solid lightgrey;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        ion-card-content {
+            .warning {
+                color: var(--ion-color-danger);
+            }
+
+            .itemsDiv {
+                display: grid;
+                grid-template-columns: repeat(6, auto) 42%;
+                align-items: center;
+                justify-items: center;
+                border-bottom: 1px solid lightgrey;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+
+                input {
+                    margin: 3px 2px;
+                    font-size: medium;
+                    height: 23px;
+                    text-align: end;
+                    width: 72px;
+
+                    &:nth-of-type(4n + 1) {
+                        text-align: start;
+                        width: 200px;
+                    }
+                }
+
+                ion-button {
+                    height: 21px;
+                }
+
+                .resultBadges {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    align-self: center;
+                    justify-items: start;
+                    ion-badge:first-of-type {
+                        margin-right: 4px;
+                        justify-self: end;
+                    }
+                }
+
+                .warning {
+                    grid-column: span 6;
+                }
+            }
+
+            .transportersDiv {
+                display: grid;
+                grid-template-columns: repeat(3, auto) 1fr auto 42%;
+                align-items: center;
+                justify-items: center;
+                border-bottom: 1px solid lightgrey;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+
+                ion-label {
+                    margin-right: 8px;
+                    grid-column: 1;
+                }
+
+                input {
+                    margin: 3px 2px;
+                    font-size: medium;
+                    height: 23px;
+                    text-align: end;
+                    width: 100px;
+                }
+
+                ion-badge:nth-of-type(n + 4) {
+                    grid-column: 5;
+                    margin-right: 12px;
+                }
+
+                .transporterBar {
+                    grid-column: 6;
+                    z-index: 1;
+                }
+
+                div:not(.transporterBar) {
+                    display: flex;
+                    width: 100%;
+                    margin-left: 16px;
+                    align-items: center;
+
+                    ion-label {
+                        margin-right: 8px;
+                    }
+                }
+            }
+
+            .itemBar,
+            .transporterBar {
+                display: block;
+                grid-column: 7;
+                height: 29px;
+                justify-self: start;
+                border: 1px solid black;
+                color: black;
+                font-size: small;
+                z-index: 2;
+
+                div {
+                    height: 50%;
+                    border-right: 1px solid black;
+                    &:first-of-type {
+                        border-bottom: 1px solid black;
+                    }
+                }
+            }
+
+            .bottomDiv {
+                display: flex;
+                flex-direction:row-reverse;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 10px;
+
+
+                ion-button {
+                    justify-self: flex-end;
+                }
+            }
+        }
+    }
+}
