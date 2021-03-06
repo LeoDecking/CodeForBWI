@@ -54,16 +54,26 @@ function setValue(list, entry, a = 0) {
         else // list[m][0] == entry[0]
         {
             list[m] = entry;
+            // (NEU) Die folgenden Elemente, die mehr Kapazität für weniger Nutzwert brauchen, werden entfernt.
+            while (m + 1 < list.length && list[m + 1][1] < entry[1]) list.splice(m + 1, 1);
             return;
         }
     }
 
-    if (list[b][0] == entry[0])
+    if (list[b][0] == entry[0]) {
         list[b] = entry;
-    else if (list[b][0] > entry[0])
+        while (b + 1 < list.length && list[b + 1][1] < entry[1]) list.splice(b + 1, 1);
+    }
+    else if (list[b][0] > entry[0]) {
         list.splice(b, 0, entry);
-    else
+        // (NEU) Die folgenden Elemente, die mehr Kapazität für weniger Nutzwert brauchen, werden entfernt.
+        while (b + 1 < list.length && list[b + 1][1] < entry[1]) list.splice(b + 1, 1);
+    }
+    else {
         list.splice(b + 1, 0, entry);
+        // (NEU) Die folgenden Elemente, die mehr Kapazität für weniger Nutzwert brauchen, werden entfernt.
+        while (b + 2 < list.length && list[b + 2][1] < entry[1]) list.splice(b + 2, 1);
+    }
 }
 
 // Es wird der Eintrag der nach Kapazität aufsteigend sortierten Liste zurückgegeben mit der größten benötigten Kapazität, die kleiner/gleich dem Parameter capacity ist.
